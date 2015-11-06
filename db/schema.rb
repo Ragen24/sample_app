@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105194609) do
+ActiveRecord::Schema.define(version: 20151105231023) do
 
   create_table "microposts", force: :cascade do |t|
     t.string   "content",    limit: 255
@@ -41,9 +41,11 @@ ActiveRecord::Schema.define(version: 20151105194609) do
     t.string   "password_digest", limit: 255
     t.string   "remember_token",  limit: 255
     t.boolean  "admin",                       default: false
+    t.string   "slug",            limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
 
 end

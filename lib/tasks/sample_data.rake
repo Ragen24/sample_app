@@ -12,15 +12,18 @@ def make_users
                        email:    "stalker.20122@yandex.ru",
                        password: "qwerty",
                        password_confirmation: "qwerty",
-                       admin: true)
+                       admin: true,
+                       slug: "ragen")
   99.times do |n|
     name  = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"
+    slug = "slug#{n+1}"
     password  = "exampleqwerty"
     User.create!(name:     name,
                  email:    email,
                  password: password,
-                 password_confirmation: password)
+                 password_confirmation: password,
+                 slug: slug)
   end
 end
 
